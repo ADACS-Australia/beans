@@ -84,7 +84,8 @@ M_NS, R_NS, Q_b = 1.4, 10., 0.1
 
 tdel, E_b, alpha = [], [], []
 
-num_runs = 8
+num_runs = 5
+print("num_runs = ", num_runs)
 
 print("======== serial run ==========")
 
@@ -141,6 +142,11 @@ ts.write('se.ecsv', format='ascii.ecsv', overwrite=True)
 
 print("======== end of serial run ==========")
 
+# ------ clear lists ----------
+
+tdel.clear()
+E_b.clear()
+alpha.clear()
 
 print("======== parallel run ==========")
 
@@ -155,12 +161,6 @@ print("Chunk size: ", chunksize)
 t_start = time.process_time()
 
 t2_sum = 0.0
-
-# ------ clear lists ----------
-
-tdel.clear()
-E_b.clear()
-alpha.clear()
 
 # ----- parallel settle run loop ------
 
